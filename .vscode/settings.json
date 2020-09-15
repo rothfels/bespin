@@ -1,0 +1,40 @@
+{
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": false,
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.addMissingImports": true,
+      "source.organizeImports": true,
+      "source.fixAll": true
+    },
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.addMissingImports": true,
+      "source.organizeImports": true,
+      "source.fixAll": true
+    },
+    "editor.formatOnSave": true
+  },
+  "[terraform]": {
+    "editor.formatOnSave": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/public/js": true,
+  },
+  "eslint.workingDirectories": [
+    { "directory": "common", "changeProcessCWD": true },
+    { "directory": "server", "changeProcessCWD": true },
+    { "directory": "mobile", "changeProcessCWD": true },
+    { "directory": "web", "changeProcessCWD": true }
+  ],
+  "eslint.enable": true,
+  "jestrunner.configPath": "jest.config.js",
+  "jestrunner.jestPath": "${workspaceFolder}/node_modules/jest/bin/jest",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "react-native.packager.port": 19001,
+}
