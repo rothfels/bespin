@@ -42,7 +42,17 @@ Clone and initialize the starter project. You'll need to have `node` and `npm` i
 source <(curl -s https://cs188.cloudcity.computer/app/script/init-project.sh)
 ```
 
-This will create a directory with the name of your project slug and install the project dependencies. Open the project directory in VS Code. Install the recommended extensions then reload VS Code.
+This will create a directory with the name of your project slug and install the project dependencies.
+
+If you run into the following error
+
+```
+git@github.com: Permission denied (publickey)
+```
+
+this is most likely because you have not added an SSH key to your github account. Follow [these instructions](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) to do so.
+
+Open the project directory in VS Code. Install the recommended extensions then reload VS Code.
 
 ### Run a local development server
 
