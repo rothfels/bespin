@@ -82,7 +82,7 @@ Set breakpoints in the gutter to the left of your code. **Note: these only work 
 
 ## Project Structure & HOWTOs
 
-- `web`: runs code in the browser (React application). In production, this code is "bundled" into a single `bundle.js` file and served by te backend. It is sourced by the HTML served at `/app`.
+- `web`: runs code in the browser (React application). In production, this code is "bundled" into a single `bundle.js` file and served by the backend. It is sourced by the HTML served at `/app`.
 - `server`: runs code on Node.js (Express server, GraphQL API). In production, this code may run in ECS or on AWS Lambda, depending on how you deploy it. Serves:
   - `/app`: React (client & server rendered) application, static assets
   - `/graphql`: GraphQL API
