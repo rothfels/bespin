@@ -14,7 +14,7 @@ async function* walk(dir) {
 
 async function main() {
     let counter = 0;
-    for await (const p of walk(path.resolve(path.join(__dirname, '../node_modules/@apollo/client')))) {
+    for await (const p of walk(path.resolve(path.join(__dirname, './node_modules/@apollo/client')))) {
       counter++;
       if (p.indexOf('.js.map') !== -1) {
         const mappath = p;
@@ -27,7 +27,7 @@ async function main() {
         fs.writeFileSync(mappath, JSON.stringify(map));
       }
     }
-    for await (const p of walk(path.resolve(path.join(__dirname, '../web/node_modules/react-responsive/dist')))) {
+    for await (const p of walk(path.resolve(path.join(__dirname, './node_modules/react-responsive/dist')))) {
       counter++;
       if (p.indexOf('.js.map') !== -1) {
         const mappath = p;

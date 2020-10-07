@@ -3,7 +3,6 @@ import { Request } from 'express'
 import { runUserBatch } from '../loadtest/runner'
 import { userScript } from '../loadtest/userScript'
 import { LambdaFunc, ServiceReq, ServiceResp } from './protocol'
-import { launchPuppet } from './puppet'
 
 export const handler = async (req: any, ctx: any) => {
   try {
@@ -26,11 +25,6 @@ export async function handleServiceReq(req: ServiceReq, ctx: LambdaContext): Pro
         result: 'pong',
       }
 
-    case LambdaFunc.PUPPET:
-      return {
-        result: await launchPuppet(req.args),
-      }
-
     case LambdaFunc.LOAD:
       return {
         result: await runUserBatch(req.args.numUsers, userScript),
@@ -51,13 +45,6 @@ export async function handleHttpReq(req: APIGatewayProxyEvent, ctx: LambdaContex
           statusCode: 200,
           headers: {},
           body: 'pong',
-        })
-
-      case LambdaFunc.PUPPET:
-        return Promise.resolve({
-          statusCode: 200,
-          headers: { 'Content-Type': 'text/plain' },
-          body: await launchPuppet({ url: 'https://cloudcity.computer/app' }),
         })
 
       default:

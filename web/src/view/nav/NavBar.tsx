@@ -78,7 +78,7 @@ export function NavBar() {
         </Nav>
         <SubNav />
       </div>
-      {toast && <Toast $isError={toast.type === ToastType.ERROR}>{toast.message}</Toast>}
+      {toast && <ToastContainer $isError={toast.type === ToastType.ERROR}>{toast.message}</ToastContainer>}
     </>
   )
 }
@@ -154,7 +154,7 @@ const NavMenuModal = style(
   { zIndex: 100 }
 )
 
-const Toast = style<'div', { $isError?: boolean }>(
+const ToastContainer = style<'div', { $isError?: boolean }>(
   'div',
   'avenir f5 fixed bottom-0 white right-0 br3 pa3 bg-black-90 mb3 mr4 mr5-ns mr7-l',
   p => ({

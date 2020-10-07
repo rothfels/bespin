@@ -25,13 +25,7 @@ import { User } from './entities/User'
 import { getSchema, graphqlRoot, pubsub } from './graphql/api'
 import { ConnectionManager } from './graphql/ConnectionManager'
 import { expressLambdaProxy } from './lambda/handler'
-import { setBrowser } from './lambda/puppet'
 import { renderApp } from './render'
-
-setBrowser(() => {
-  const puppeteer = require('puppeteer')
-  return puppeteer.launch()
-})
 
 const server = new GraphQLServer({
   typeDefs: getSchema(),

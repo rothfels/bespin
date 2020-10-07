@@ -1,6 +1,5 @@
 export enum LambdaFunc {
   PING = 'PING',
-  PUPPET = 'PUPPET',
   LOAD = 'LOAD',
 }
 

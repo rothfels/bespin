@@ -44,13 +44,16 @@ source <(curl -s https://cs188.cloudcity.computer/app/script/init-project.sh)
 
 This will create a directory with the name of your project slug and install the project dependencies.
 
-If you run into the following error:
+If you run into an error sourcing the init script above, you may run the steps manually:
 
 ```
-git@github.com: Permission denied (publickey)
+git clone https://github.com/rothfels/bespin.git <your project slug>
+cd <your project slug>
+rm -rf .git
+<find/replace "bespin" with your project slug>
+git init
+npm install
 ```
-
-this is because you have not added an SSH key to your github account. Follow [these instructions](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) to do so.
 
 Open the project directory in VS Code. Install the recommended extensions then reload VS Code.
 
@@ -235,10 +238,7 @@ A load test is a sequence of `ArrivalPhase`s, each consisting of period of time 
 
 The default script in `loadtest.ts` makes 3 GET requests to your appserver. Because your app is server rendered, your server will make GraphQL requests to itself to fetch the data necessary to render your app.
 
-You may modify the script in `loadtest.ts` to:
-
-- make arbitrary GET or POST (e.g. GraphQL) requests to any endpoint of your server, using the `fetch` interface or `apolloClient`
-- (WIP) trigger a lambda invocation which loads your app in a headless Chrome instance
+You may modify the script in `loadtest.ts` to make arbitrary GET or POST (e.g. GraphQL) requests to any endpoint of your server, using the `fetch` interface or `apolloClient`.
 
 ### Local execution vs. distributed execution
 
