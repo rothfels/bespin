@@ -4,6 +4,7 @@
     "dbaeumer.vscode-eslint",
     "apollographql.vscode-apollo",
     "firsttris.vscode-jest-runner",
-    "ms-vscode.js-debug"
+    "ms-vscode.js-debug",
+    "ms-vscode.vscode-js-profile-flame"
   ]
 }
