@@ -9,7 +9,7 @@ export class Session extends BaseEntity {
   @CreateDateColumn()
   timeCreated: Date
 
-  @OneToOne(type => User)
+  @OneToOne(() => User)
   @JoinColumn()
   user: User
 

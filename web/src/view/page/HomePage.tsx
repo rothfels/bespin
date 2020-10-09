@@ -11,6 +11,7 @@ import { Page } from './Page'
 
 interface HomePageProps extends RouteComponentProps, AppRouteParams {}
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function HomePage(props: HomePageProps) {
   return (
     <Page>

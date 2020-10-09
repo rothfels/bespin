@@ -215,7 +215,8 @@ server.express.post(
     if (authToken) {
       const session = await Session.findOne({ where: { authToken }, relations: ['user'] })
       if (session) {
-        ;(req as any).user = session.user
+        const reqAny = req as any
+        reqAny.user = session.user
       }
     }
     next()

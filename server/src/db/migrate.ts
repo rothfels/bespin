@@ -28,7 +28,7 @@ export async function migrate(): Promise<void> {
     // Run each of the new migrations that haven't been run yet.
     console.log(`[db] running ${migrations.length - successes.length} migrations`)
     for (let i = successes.length; i < migrations.length; i++) {
-      let success = await runMigration(migrations[i], currRank, sql)
+      const success = await runMigration(migrations[i], currRank, sql)
       if (!success) {
         console.log('[db] aborting further migrations until failure is fixed')
         return

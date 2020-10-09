@@ -11,6 +11,7 @@ import { Page } from './Page'
 
 interface LecturesPageProps extends RouteComponentProps, AppRouteParams {}
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function LecturesPage(props: LecturesPageProps) {
   return (
     <Page>

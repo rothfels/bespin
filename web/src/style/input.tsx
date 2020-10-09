@@ -21,7 +21,7 @@ const InputBase = style('input', 'pa2 input-reset ba bg-transparent w-100 measur
 
 type Props = InputProps & JSX.IntrinsicElements['input']
 
-export const Input: React.FC<Props> = props => {
+export function Input(props: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
 
   function handleEnterKey(e: React.KeyboardEvent<HTMLElement>) {

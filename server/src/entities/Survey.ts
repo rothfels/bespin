@@ -12,7 +12,7 @@ export class Survey extends BaseEntity {
   @Column({ nullable: true })
   currQuestion: number
 
-  @OneToMany(type => SurveyQuestion, question => question.survey, { eager: true })
+  @OneToMany(() => SurveyQuestion, question => question.survey, { eager: true })
   questions: SurveyQuestion[]
 
   get isStarted() {

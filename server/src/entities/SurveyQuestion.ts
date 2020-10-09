@@ -13,9 +13,9 @@ export class SurveyQuestion extends BaseEntity {
   @Column('simple-array', { nullable: true })
   choices: string[]
 
-  @OneToMany(type => SurveyAnswer, answer => answer.question, { eager: true })
+  @OneToMany(() => SurveyAnswer, answer => answer.question, { eager: true })
   answers: SurveyAnswer[]
 
-  @ManyToOne(type => Survey, survey => survey.questions)
+  @ManyToOne(() => Survey, survey => survey.questions)
   survey: Survey
 }

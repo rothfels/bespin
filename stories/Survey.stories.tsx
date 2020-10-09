@@ -7,7 +7,7 @@ export default {
 } as Meta
 
 const SurveyTemplate: Story<{ surveyId: number }> = args => <SurveyComponent {...args} />
-const SurveysTemplate: Story = args => <SurveysComponent />
+const SurveysTemplate: Story = () => <SurveysComponent />
 
 export const Survey = SurveyTemplate.bind({})
 Survey.args = {

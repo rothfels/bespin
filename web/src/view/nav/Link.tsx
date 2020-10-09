@@ -34,11 +34,11 @@ export class Link extends React.PureComponent<LinkProps> {
   }
 
   render() {
-    let { to, href, title, onClick, noTab, children, block, Component, ...rest } = this.props
+    const { to, href, title, onClick, noTab, children, block, Component, ...rest } = this.props
     const hrefUrl = href || to
     const clickHandler = onClick || (to == null ? null : this.onClick)
 
-    const A = this.props.Component || DefaultAnchor
+    const A = Component || DefaultAnchor
     return (
       <A
         target="_blank"

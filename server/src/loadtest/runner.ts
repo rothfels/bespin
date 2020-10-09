@@ -45,13 +45,15 @@ function runArrivalPhase(i: number, { rate, duration }: ArrivalPhase, script?: U
       // Loop until terminated (after arrival phase duration seconds)
       while (true) {
         const batch = ++batchNum
-        runUserBatch(rate, script).then(res => {
-          const success = res.filter(r => r).length
-          const fail = res.filter(r => !r).length
-          console.log(`[load] arrival phase ${i} batch ${batch}: ${success} succeeded, ${fail} failed`)
-          successTotal += success
-          failureTotal += fail
-        })
+        runUserBatch(rate, script)
+          .then(res => {
+            const success = res.filter(r => r).length
+            const fail = res.filter(r => !r).length
+            console.log(`[load] arrival phase ${i} batch ${batch}: ${success} succeeded, ${fail} failed`)
+            successTotal += success
+            failureTotal += fail
+          })
+          .catch(err => console.error(err))
         await wait(1000) // wait a second to run the next batch
         yield true // unused
       }
@@ -65,7 +67,7 @@ function runArrivalPhase(i: number, { rate, duration }: ArrivalPhase, script?: U
     // End the batch runner after the arrival phase duration.
     // Complete the arival phase promise so the next phase can begin.
     setTimeout(() => {
-      iter.return()
+      iter.return().catch(err => console.error(err))
       resolve()
     }, duration * 1000)
   })

@@ -115,7 +115,7 @@ function SurveyInput(props: { currentQuestion: FetchSurvey_survey_currentQuestio
   function handleSubmit(val: string) {
     setSubmitted({ submitting: true, submitted: false })
     answerSurveyQuestion(getApolloClient(), { answer: val, questionId: question.id })
-      .then(res => {
+      .then(() => {
         toast('submitted!')
         setSubmitted({ submitted: true, submitting: false })
       })

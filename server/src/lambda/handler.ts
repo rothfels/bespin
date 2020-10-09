@@ -17,7 +17,7 @@ export const handler = async (req: any, ctx: any) => {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/require-await
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function handleServiceReq(req: ServiceReq, ctx: LambdaContext): Promise<ServiceResp> {
   switch (req.function.toUpperCase()) {
     case LambdaFunc.PING:
@@ -35,6 +35,7 @@ export async function handleServiceReq(req: ServiceReq, ctx: LambdaContext): Pro
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function handleHttpReq(req: APIGatewayProxyEvent, ctx: LambdaContext): Promise<APIGatewayProxyResult> {
   const func = req.pathParameters?.function || LambdaFunc.PING
 

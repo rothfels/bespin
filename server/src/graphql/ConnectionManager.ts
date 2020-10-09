@@ -44,7 +44,7 @@ export class ConnectionManager {
     console.log(`[ws] ending subscription ${connId}:${opId}`)
     const ops = connectionDB[connId] || {}
     if (ops?.[opId]?.return) {
-      ops[opId].return!()
+      ops[opId].return!().catch(err => console.error(err))
     }
     delete ops[opId]
   }

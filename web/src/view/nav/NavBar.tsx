@@ -157,7 +157,7 @@ const NavMenuModal = style(
 const ToastContainer = style<'div', { $isError?: boolean }>(
   'div',
   'avenir f5 fixed bottom-0 white right-0 br3 pa3 bg-black-90 mb3 mr4 mr5-ns mr7-l',
-  p => ({
+  () => ({
     // color: p.$theme.textColor(p.$isError),
     zIndex: 100,
   })

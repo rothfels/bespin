@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-types */
+
 import * as React from 'react'
 import { forwardRef } from 'react'
 import { createStyled, StyleObject, StyletronComponent, withStyleDeep } from 'styletron-react'

@@ -33,7 +33,7 @@ export function Login() {
         check(res.ok, 'response status ' + res.status)
         return res.text()
       })
-      .then(res => window.location.reload())
+      .then(() => window.location.reload())
       .catch(err => {
         toastErr(err.toString())
         setError({ email: true, password: true })

@@ -9,6 +9,6 @@ export class SurveyAnswer extends BaseEntity {
   @Column('text')
   answer: string
 
-  @ManyToOne(type => SurveyQuestion, question => question.answers)
+  @ManyToOne(() => SurveyQuestion, question => question.answers)
   question: SurveyQuestion
 }
