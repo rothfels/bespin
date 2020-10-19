@@ -21,7 +21,7 @@ Later, to deploy your app you will also need:
 
 If you've already installed Node but aren't running Node.js 12.x (`node --version`), use `nvm` to install an appropriate version. [Follow their instructions.](https://github.com/nvm-sh/nvm)
 
-```
+```bash
 nvm install 12
 nvm alias default 12
 ```
@@ -38,7 +38,7 @@ Choose a short, alphanumeric [*slug*](https://en.wikipedia.org/wiki/Clean_URL#Sl
 
 Clone and initialize the starter project. You'll need to have `node` and `npm` installed first. See [dependencies](https://github.com/rothfels/bespin#dependencies).
 
-```
+```bash
 source <(curl -s https://cs188.cloudcity.computer/app/script/init-project.sh)
 ```
 
@@ -46,11 +46,11 @@ This will create a directory with the name of your project slug and install the 
 
 If you run into an error sourcing the init script above, you may run the steps manually:
 
-```
+```bash
 git clone https://github.com/rothfels/bespin.git <your project slug>
 cd <your project slug>
 rm -rf .git
-<find/replace "bespin" with your project slug>
+# <find/replace "bespin" with your project slug>
 git init
 npm install
 ```
@@ -63,7 +63,7 @@ Open the project directory in VS Code. Install the recommended extensions then r
 
 Your appserver can use a MySQL database and a Redis instance. Start these on your local machine in the background:
 
-```
+```bash
 docker-compose up -d
 ```
 
@@ -71,8 +71,8 @@ docker-compose up -d
 
 You must compile TypeScript before it is runnable in a browser. Start a "watch" mode process that compiles your TypeScript as soon as you change it.
 
-```
-npm run watch:web
+```bash
+npm run watch
 ```
 
 #### Run `server.ts`
@@ -93,6 +93,20 @@ Set breakpoints in the gutter to the left of your code. **Note: these only work 
 
 ![image](https://user-images.githubusercontent.com/1095573/93257545-dcf9ee00-f751-11ea-9a7a-1f103a3d3c5a.png)
 
+
+#### Run `server.ts` (fast mode)
+
+Using the run configuration above is good if you want to use breakpoints, but it can be quite slow depending on your computer. The reason is that under the hood it uses `ts-node`, which is like `node` but compiles all your TypeScript first.
+
+There's a faster way. While running `npm run watch`, any change you make to a TypeScript file will automatically generate a new JavaScript. We can run the generated JavaScript through `node` like this:
+
+```bash
+npm run start:server
+```
+
+Now, every time you modify a TypeScript file we will (quickly) restart the server!
+
+**Note:** if add a new migration, modify your GraphQL schema, or add any `public` resource you will need to stop and re-run the script above.
 
 #### Run React Storybook
 
