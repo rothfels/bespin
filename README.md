@@ -173,7 +173,7 @@ terraform init
 terraform apply
 ```
 
-The `terraform apply` step will run code to create all the resources required to run your application. It will generate a `terraform.tfstate` file which it uses to track and manage the resources it has created. **Don't lose this file, and make sure to check it into your repo with git**.
+The `terraform apply` step will run code to create all the resources required to run your application. It will generate a `terraform.tfstate` file which it uses to track and manage the resources it has created. **Don't lose this file, but also do not check it into your repo with git**. You should remove the `teraform` directory and manage it outside of git on your personal machine. Only one person in your group needs to do this.
 
 #### De-provisioning resource
 
